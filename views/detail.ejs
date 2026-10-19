@@ -1,0 +1,58 @@
+
+<%- include('partials/header') %>
+
+<main class="container">
+
+  <a href="/" class="back-link">
+    ← Kembali ke Katalog
+  </a>
+
+  <section class="detail-card">
+
+    <div class="detail-cover">
+      <span>📖</span>
+    </div>
+
+    <div class="detail-info">
+
+      <span class="genre">
+        <%= buku.genre %>
+      </span>
+
+      <h1><%= buku.judul %></h1>
+
+      <p class="detail-author">
+        Ditulis oleh <%= buku.penulis %>
+      </p>
+
+      <div class="book-meta">
+
+        <p>
+          <strong>Penulis:</strong>
+          <%= buku.penulis %>
+        </p>
+
+        <p>
+          <strong>Genre:</strong>
+          <%= buku.genre %>
+        </p>
+
+        <p>
+          <strong>Tahun Terbit:</strong>
+          <%= buku.tahun %>
+        </p>
+
+      </div>
+
+      <div class="synopsis">
+        <h2>Sinopsis</h2>
+        <p><%= buku.sinopsis %></p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>

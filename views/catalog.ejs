@@ -1,0 +1,93 @@
+  <%- include('partials/header') %>
+
+<main class="container">
+
+  <section class="hero">
+    <p class="eyebrow">EXPLORE YOUR NEXT READ</p>
+    <h1>Discover Your Next Favorite Book</h1>
+    <p>Jelajahi berbagai buku berdasarkan genre favoritmu.</p>
+  </section>
+
+  <section class="catalog">
+
+    <div class="section-heading">
+      <h2>Koleksi Buku</h2>
+      <p>Temukan bacaan yang sesuai dengan minatmu.</p>
+    </div>
+
+    <form action="/" method="GET" class="filter-form">
+
+      <label for="genre">Filter Genre:</label>
+
+      <select name="genre" id="genre">
+        <option value="">Semua Genre</option>
+
+        <option value="fiksi"
+          <%= genre === 'fiksi' ? 'selected' : '' %>>
+          Fiksi
+        </option>
+
+        <option value="fantasi"
+          <%= genre === 'fantasi' ? 'selected' : '' %>>
+          Fantasi
+        </option>
+
+        <option value="nonfiksi"
+          <%= genre === 'nonfiksi' ? 'selected' : '' %>>
+          Nonfiksi
+        </option>
+      </select>
+
+      <button type="submit">Terapkan Filter</button>
+
+    </form>
+
+    <div class="book-grid">
+
+      <% if (daftarBuku.length === 0) { %>
+
+        <p class="empty-message">
+          Tidak ada buku pada genre ini.
+        </p>
+
+      <% } else { %>
+
+        <% daftarBuku.forEach(buku => { %>
+
+          <article class="book-card">
+
+            <div class="book-cover">
+              <span>📖</span>
+            </div>
+
+            <div class="book-info">
+              <span class="genre"><%= buku.genre %></span>
+
+              <h3><%= buku.judul %></h3>
+
+              <p class="author">
+                <%= buku.penulis %>
+              </p>
+
+              <p class="year">
+                Tahun Terbit: <%= buku.tahun %>
+              </p>
+
+              <a href="/buku/<%= buku.id %>" class="detail-button">
+                Lihat Detail →
+              </a>
+            </div>
+
+          </article>
+
+        <% }); %>
+
+      <% } %>
+
+    </div>
+
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
